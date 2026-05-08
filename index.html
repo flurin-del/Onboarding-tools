@@ -168,5 +168,19 @@ function showNotice(msg) {
   setTimeout(() => el.textContent = '', 5000);
 }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script>
+window.addEventListener('load', function() {
+  confetti({
+    particleCount: 160,
+    spread: 90,
+    origin: { y: 0.5 },
+    colors: ['#0EB3A8', '#0177DB', '#5BC4F5', '#ffffff']
+  });
+  setTimeout(() => {
+    confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#0EB3A8', '#0177DB', '#ffffff'] });
+    confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#0EB3A8', '#0177DB', '#ffffff'] });
+  }, 150);
+});
+</script>
 </body>
-</html>
