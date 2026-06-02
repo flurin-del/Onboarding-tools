@@ -145,7 +145,10 @@ function getData() {
 async function copySignature() {
   const html = buildHtml(getData());
   try {
-    await navigator.clipboard.write([new ClipboardItem({'text/html': new Blob([html], {type:'text/html'})})] );
+    await navigator.clipboard.write([new ClipboardItem({
+      'text/html': new Blob([html], {type:'text/html'}),
+      'text/plain': new Blob([html], {type:'text/plain'})
+    })]);
     showNotice('✓  Copied — open Gmail → Settings → Signature → paste');
   } catch(e) {
     await navigator.clipboard.writeText(html);
